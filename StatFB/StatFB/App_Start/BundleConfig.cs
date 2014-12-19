@@ -18,12 +18,21 @@ namespace StatFB
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
+                        "~/Scripts/qunit-1.16.0.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/customs").Include(
+                        "~/Javascripts/HttpRequest.js",
+                        "~/Javascripts/Test.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/site.css",
+                        "~/Content/qunit-1.16.0.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

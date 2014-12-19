@@ -9,8 +9,11 @@
 </head>
 <body>
     @RenderBody()
-
+    
+    <div id="qunit"></div>
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/vendors")
+    @Scripts.Render("~/bundles/customs")
     @RenderSection("scripts", required: false)
 </body>
 </html>

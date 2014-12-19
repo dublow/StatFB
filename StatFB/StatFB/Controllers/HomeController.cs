@@ -16,5 +16,17 @@ namespace StatFB.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult Index(FormCollection coll)
+        {
+            return Json(new {t = 2});
+        }
+
+        [HttpPost]
+        public JsonResult Indexthrow(FormCollection coll)
+        {
+            throw new Exception();
+            return Json(new { t = 2 });
+        }
     }
 }
