@@ -1,0 +1,4 @@
+*.suo
+StatFB/StatFB/bin/*
+StatFB/StatFB/obj/*
+*.user
