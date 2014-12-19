@@ -20,26 +20,35 @@
 
     var Init = function() {
         this.init = function(callback) {
-            http.post('/home/config', {}).done(function (response) {
-                window.fbAsyncInit = function () {
-                    FB.init({
-                        appId: response.data.appId,
-                        xfbml: true,
-                        version: 'v2.1'
-                    });
+            http.post('/home/config', {})
+                .done(function(response) {
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId: response.data.appId,
+                            xfbml: true,
+                            version: 'v2.1'
+                        });
 
+                        if (callback)
+                            callback(new Status('Init', 'Ok'));
+                    };
+
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {
+                            return;
+                        }
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                })
+                .fail(function (response) {
+                    response.statusText = "Impossible de charger le SDK Facebook.";
                     if (callback)
-                        callback(new Status('Init', 'Ok'));
-                };
-
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) { return; }
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            });
+                        callback(response);
+                });
         };
     };
     

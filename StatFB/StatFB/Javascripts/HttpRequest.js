@@ -27,10 +27,11 @@
         return {
             isProd: isProdContext,
             pending: function (fcn) {
+                var that = this;
                 storedPending = fcn;
                 if(storedPending)
                     storedPending(isPending);
-                return this;
+                return that;
             },
             done: function (fcn) {
                 var that = this;
@@ -38,8 +39,8 @@
                     fcn(new response(message.status, statusCode, message.statusText, result));
                     isPending = false;
                     that.pending(storedPending);
-                    return that;
                 });
+                return that;
             },
             fail: function (fcn) {
                 var that = this;
@@ -47,8 +48,8 @@
                     fcn(new response(obj.status, statusCode, statusText, isProdContext ? null : { stackTrace: obj.responseText }));
                     isPending = false;
                     that.pending(storedPending);
-                    return that;
                 });
+                return that;
             }
         };
     };
