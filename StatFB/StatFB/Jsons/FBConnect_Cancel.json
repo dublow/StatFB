@@ -1,0 +1,9 @@
+﻿{
+   "action":"Connect",
+   "message":"Cancel or not fully authorize",
+   "data":{
+      "login":{
+
+      }
+   }
+}

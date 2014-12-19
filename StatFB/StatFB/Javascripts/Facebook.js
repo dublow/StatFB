@@ -2,35 +2,43 @@
     var facebook = function (initBehavior, connectBehavior) {
         this.initBehavior = initBehavior;
         this.connectBehavior = connectBehavior;
+        this.config = {};
     };
 
-    var Status = function(action, message) {
+    var Status = function(action, message, data) {
         this.action = action;
         this.message = message;
+        this.data = data;
     };
 
     facebook.prototype = {        
         init: function(callback) {
-            this.initBehavior.init(callback);
+            this.initBehavior.init(this, callback);
         },
-        connect: function() {
-            this.connectBehavior.connect();
+        connect: function(selectorId, callback) {
+            this.connectBehavior.connect(this, selectorId, callback);
         }
     };
 
     var Init = function() {
-        this.init = function(callback) {
+        this.init = function(context, callback) {
             http.post('/home/config', {})
-                .done(function(response) {
-                    window.fbAsyncInit = function() {
+                .done(function (response) {
+                    context.config = response.data;
+                    
+                    window.fbAsyncInit = function () {
+                         
                         FB.init({
-                            appId: response.data.appId,
+                            appId: context.config.appId,
                             xfbml: true,
                             version: 'v2.1'
                         });
 
                         if (callback)
-                            callback(new Status('Init', 'Ok'));
+                            callback(new Status('Init', 'Ok', null));
+                        
+                        $('#fb-root').trigger('facebook:init');
+
                     };
 
                     (function(d, s, id) {
@@ -52,11 +60,24 @@
         };
     };
     
-    
-    
     var Connect = function() {
-        this.connect = function() {
-            console.log("FB connect");
+        this.connect = function (context, selectorId, callback) {
+            $('#' + selectorId).on('click', function () {
+                var forCallback = new Status('Connect', 'Init', {});
+                FB.login(function (response) {
+                    forCallback.data.login = response;
+                    if (response.authResponse) {
+                        forCallback.message = 'Ok';
+                        FB.api('/me', function (me) {
+                            forCallback.data.me = me;
+                            callback(forCallback);
+                        });
+                    } else {
+                        forCallback.message = "Cancel or not fully authorize";
+                        callback(forCallback);
+                    }
+                }, { scope: context.config.scope });
+            });
         };
     };
 

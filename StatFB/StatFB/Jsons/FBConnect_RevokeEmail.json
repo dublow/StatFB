@@ -1,0 +1,27 @@
+﻿{
+   "action":"Connect",
+   "message":"Ok",
+   "data":{
+      "login":{
+         "authResponse":{
+            "accessToken":"CAAThZBsyFMDQBAL2ZB75nCJJJklqZCJSNIMdCvzqHJzUdNZChaBXx2kZBDYesjObpSZBpqts2sGzq5Nc4nBXiD9cXSbhbrIXH47iac9e2EyL4bVJoWwNRa3ovgFJHJXuSqNrL7HvvPLbzmwaXljpf09sDkZApLxQ17K6ThSTwE0KID4z69fQEYIrH1zm385lxhFlFHyZC84eaDy3gnQWdtZCd",
+            "userID":"911882122170286",
+            "expiresIn":5243,
+            "signedRequest":"UWogTKbskUEraYzMJ00hf3_cO8pg4LyQkMDhcedg1cE.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUQ4UENSMm5ERUMwTEdFZy01MGJwUXFqNEFvSDd6YWgwbVZ3TTVFZzhJT3VxRU4tWG0taHkxQWlscHhjVHFwMXdLRkR3a2s2OHBFY0NqU1l1Vk1NZEthcEhJX2VSLVU4NHhfc3ptMGhZdFp0RlNDcWZHaVhQa3F6eFRfNGtoVHF3MmVraExFSkpMOWlJUHFkbXJHeTQ0R241a3FDN0RMWHI4bFJCaUZSUjVjckxSSTM5ZmpPSGJQZXRKdm81ZTJwQjVjME9JY3owczBuUGVzVmlfR2ZiQXNPZFIyZGpmUEdSUEQ2NDVWVkhCNkF0d2UtdGxUbjQ1MFktZWlFVk9GcUFHQ3RuejFuODFoZndzUTZoVUxnVTZ5UktUSkV4Ti1BUmdSd0Vmck9VX3ZTd0hfREdqSF9ZX2lSSmhXNi0tV3pKNnd6S2NSREhHTDhFNTl3dDNNVkZGYSIsImlzc3VlZF9hdCI6MTQxOTAxMzk1NiwidXNlcl9pZCI6IjkxMTg4MjEyMjE3MDI4NiJ9"
+         },
+         "status":"connected"
+      },
+      "me":{
+         "id":"911882122170286",
+         "first_name":"Nicolas",
+         "gender":"male",
+         "last_name":"Delfour",
+         "link":"https://www.facebook.com/app_scoped_user_id/911882122170286/",
+         "locale":"fr_FR",
+         "name":"Nicolas Delfour",
+         "timezone":1,
+         "updated_time":"2014-12-09T20:05:45+0000",
+         "verified":true
+      }
+   }
+}

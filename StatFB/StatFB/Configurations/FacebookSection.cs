@@ -39,11 +39,11 @@ namespace StatFB.Configurations
             set { this["namespace"] = value; }
         }
 
-        [ConfigurationProperty("scopes")]
-        public string Scopes
+        [ConfigurationProperty("scope")]
+        public string Scope
         {
-            get { return (string)this["scopes"]; }
-            set { this["scopes"] = value; }
+            get { return (string)this["scope"]; }
+            set { this["scope"] = value; }
         }
     }
 }

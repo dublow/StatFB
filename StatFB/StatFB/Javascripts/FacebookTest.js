@@ -1,8 +1,10 @@
-﻿QUnit.test('Facebook_when_init_success', function (assert) {
+﻿var fb = Facebook;
+QUnit.test('Facebook_when_init_success', function (assert) {
     var done = assert.async();
-    Facebook.init(function (response) {
+    fb.init(function (response) {
         assert.equal(response.action, 'Init', 'Action: Init');
         assert.equal(response.message, 'Ok', 'Message: Ok');
+        assert.equal(response.data === null, true, 'No data');
         assert.equal($('#facebook-jssdk').attr('src'), '//connect.facebook.net/en_US/sdk.js', 'Script source');
         assert.equal($('#fb-root').length, 1, 'Div fb-root');
         done();
@@ -18,4 +20,20 @@
 //    });
 
 //});
+$(document).ready(function() {
+    $("#fb-root").on("facebook:init", function () {
+        QUnit.test('Facebook_when_connect_success', function (assert) {
+            var done = assert.async();
+            fb.connect('fblogin', function (response) {
+                assert.equal(response.action, 'Connect', 'Action: Connect');
+                assert.equal(response.message, 'Ok', 'Message: Ok');
+                assert.equal(response.data.login.authResponse.userID, '911882122170286', 'userID: 911882122170286');
+                done();
+            });
+
+            $('#fblogin').trigger('click');
+        });
+    });
+});
+
 

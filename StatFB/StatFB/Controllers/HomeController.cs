@@ -36,7 +36,7 @@ namespace StatFB.Controllers
         public JsonResult Config()
         {
             FacebookSection section = (FacebookSection)ConfigurationManager.GetSection("facebook");
-            return Json(new { appId = section.Config.AppId });
+            return Json(new { appId = section.Config.AppId, scope = section.Config.Scope });
         }
     }
 }

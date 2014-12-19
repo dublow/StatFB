@@ -1,11 +1,11 @@
-﻿QUnit.test('HttpRequest_When_Start_Pending', function (assert) {
+﻿QUnit.test('HttpRequest_when_start_pending', function (assert) {
     new HttpRequest(false).post('/home/index', { t: 1 })
         .pending(function(isPending) {
             assert.equal(isPending, true, "Is in pending");
         });
 });
 
-QUnit.test('HttpRequest_When_End_Pending', function (assert) {
+QUnit.test('HttpRequest_when_end_pending', function (assert) {
     var isFirstPending = true;
     var done = assert.async();
     new HttpRequest(false).post('/home/index', { t: 1 })
@@ -21,7 +21,7 @@ QUnit.test('HttpRequest_When_End_Pending', function (assert) {
         });
 });
 
-QUnit.test('HttpRequest_When_404_Preprod', function (assert) {
+QUnit.test('HttpRequest_when_404_preprod', function (assert) {
     var done = assert.async();
     new HttpRequest(false).post('/home/notfound', { t: 1 })
         .fail(function(response) {
@@ -32,7 +32,7 @@ QUnit.test('HttpRequest_When_404_Preprod', function (assert) {
         });
 });
 
-QUnit.test('HttpRequest_When_404_Prod', function (assert) {
+QUnit.test('HttpRequest_when_404_prod', function (assert) {
     var done = assert.async();
     new HttpRequest(true).post('/home/notfound', { t: 1 })
         .fail(function (response) {
@@ -65,7 +65,7 @@ QUnit.test('HttpRequest_When_404_Prod', function (assert) {
 //        });
 //});
 
-QUnit.test('HttpRequest_When_200', function (assert) {
+QUnit.test('HttpRequest_when_200', function (assert) {
     var done = assert.async();
     new HttpRequest(true).post('/home/index', { t: 1 })
         .done(function (response) {
