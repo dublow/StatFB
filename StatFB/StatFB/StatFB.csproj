@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Configurations\FacebookSection.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,9 +185,10 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Javascripts\Facebook.js" />
     <Content Include="Javascripts\HttpRequest.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Javascripts\Test.js" />
+    <Content Include="Javascripts\HttpRequestTest.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
@@ -203,10 +205,10 @@
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\qunit-1.16.0.js" />
-    <Content Include="Scripts\r.js" />
-    <Content Include="Scripts\require.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

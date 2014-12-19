@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using StatFB.Configurations;
 
 namespace StatFB.Controllers
 {
@@ -13,6 +15,7 @@ namespace StatFB.Controllers
 
         public ActionResult Index()
         {
+            FacebookSection section = (FacebookSection) ConfigurationManager.GetSection("facebook");
             return View();
         }
 
