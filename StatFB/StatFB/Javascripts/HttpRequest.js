@@ -1,6 +1,9 @@
 ﻿var HttpRequest = (function ($) {
     var isProdContext = false,
-        httpRequest = function(isProd) { isProdContext = isProd; },
+        httpRequest = function (isProd) {
+            this.isProd = isProd;
+             isProdContext = isProd;
+        },
         response = function (httpCode, statusText, statusCode, data) {
             this.httpCode = httpCode;
             this.statusText = statusText;
@@ -22,6 +25,7 @@
             ajax = $.ajax({ url: url, type: type, dataType: 'json', data: data });
 
         return {
+            isProd: isProdContext,
             pending: function (fcn) {
                 storedPending = fcn;
                 if(storedPending)

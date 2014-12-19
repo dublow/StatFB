@@ -43,27 +43,27 @@ QUnit.test('HttpRequest_When_404_Prod', function (assert) {
         });
 });
 
-QUnit.test('HttpRequest_When_500_Preprod', function (assert) {
-    var done = assert.async();
-    new HttpRequest(false).post('/home/indexthrow', { t: 1 })
-        .fail(function (response) {
-            assert.equal(typeof response, 'object', JSON.stringify(response));
-            assert.equal(response.httpCode, 500, "Http code 500");
-            assert.equal(response.data !== null, true, "Is not null data preprod");
-            done();
-        });
-});
+//QUnit.test('HttpRequest_When_500_Preprod', function (assert) {
+//    var done = assert.async();
+//    new HttpRequest(false).post('/home/indexthrow', { t: 1 })
+//        .fail(function (response) {
+//            assert.equal(typeof response, 'object', JSON.stringify(response));
+//            assert.equal(response.httpCode, 500, "Http code 500");
+//            assert.equal(response.data !== null, true, "Is not null data preprod");
+//            done();
+//        });
+//});
 
-QUnit.test('HttpRequest_When_500_Prod', function (assert) {
-    var done = assert.async();
-    new HttpRequest(true).post('/home/indexthrow', { t: 1 })
-        .fail(function (response) {
-            assert.equal(typeof response, 'object', JSON.stringify(response));
-            assert.equal(response.httpCode, 500, "Http code 500");
-            assert.equal(response.data === null, true, "Is null data prod");
-            done();
-        });
-});
+//QUnit.test('HttpRequest_When_500_Prod', function (assert) {
+//    var done = assert.async();
+//    new HttpRequest(true).post('/home/indexthrow', { t: 1 })
+//        .fail(function (response) {
+//            assert.equal(typeof response, 'object', JSON.stringify(response));
+//            assert.equal(response.httpCode, 500, "Http code 500");
+//            assert.equal(response.data === null, true, "Is null data prod");
+//            done();
+//        });
+//});
 
 QUnit.test('HttpRequest_When_200', function (assert) {
     var done = assert.async();

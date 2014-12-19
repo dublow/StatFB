@@ -31,5 +31,12 @@ namespace StatFB.Controllers
             throw new Exception();
             return Json(new { t = 2 });
         }
+
+        [HttpPost]
+        public JsonResult Config()
+        {
+            FacebookSection section = (FacebookSection)ConfigurationManager.GetSection("facebook");
+            return Json(new { appId = section.Config.AppId });
+        }
     }
 }

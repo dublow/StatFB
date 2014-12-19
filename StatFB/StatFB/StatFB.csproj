@@ -188,6 +188,7 @@
     <Content Include="Javascripts\Facebook.js" />
     <Content Include="Javascripts\HttpRequest.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Javascripts\FacebookTest.js" />
     <Content Include="Javascripts\HttpRequestTest.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

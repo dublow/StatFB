@@ -23,7 +23,9 @@ namespace StatFB
 
             bundles.Add(new ScriptBundle("~/bundles/customs").Include(
                         "~/Javascripts/HttpRequest.js",
-                        "~/Javascripts/HttpRequestTest.js"));
+                        "~/Javascripts/HttpRequestTest.js",
+                        "~/Javascripts/Facebook.js",
+                        "~/Javascripts/FacebookTest.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
