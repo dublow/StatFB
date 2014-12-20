@@ -143,6 +143,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Configurations\FacebookSection.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Extensions\SerializerExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,9 +194,12 @@
     <Content Include="Jsons\FBConnect_Success.json" />
     <Content Include="Jsons\FBConnect_Cancel.json" />
     <Content Include="Jsons\FBConnect_RevokeEmail.json" />
+    <Content Include="Jsons\FBGetLoginStatus_Authorize.json" />
+    <Content Include="Jsons\FBGetLoginStatus_NotAuthorize.json" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Javascripts\FacebookTest.js" />
     <Content Include="Javascripts\HttpRequestTest.js" />
+    <None Include="Jsons\FBGetLoginStatus_Logout.json" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
@@ -229,6 +233,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

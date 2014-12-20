@@ -7,8 +7,12 @@ var Factory = {
                 return new Init();
             case 'initthrow':
                 return new InitThrow();
+            case 'connected':
+                return new Connected();
             case 'connect':
                 return new Connect();
+            case 'friends':
+                return new Friends();
             default:
                 return null;
         }
@@ -50,7 +54,7 @@ var Init = function () {
                     });
 
                     if (callback)
-                        callback(new Status('Init', 'Ok', null));
+                        callback(new Status('Init', 'ok', null));
 
                     $('#fb-root').trigger('facebook:init');
 
@@ -75,23 +79,44 @@ var Init = function () {
     };
 };
 
+var Connected = function () {
+    this.connected = function (context, callback) {
+        FB.getLoginStatus(function (response) {
+            if (callback)
+                callback(new Status('Connected', response.status, response));
+        });
+    };
+};
+
 var Connect = function () {
     this.connect = function (context, selectorId, callback) {
         $('#' + selectorId).on('click', function () {
-            var forCallback = new Status('Connect', 'Init', {});
+            var forCallback = new Status('Connect', 'init', {});
             FB.login(function (response) {
                 forCallback.data.login = response;
                 if (response.authResponse) {
-                    forCallback.message = 'Ok';
+                    forCallback.message = 'ok';
                     FB.api('/me', function (me) {
                         forCallback.data.me = me;
                         callback(forCallback);
+
+                        $('#fb-root').trigger('facebook:connect');
                     });
                 } else {
-                    forCallback.message = "Cancel or not fully authorize";
+                    forCallback.message = "cancel or not fully authorize";
                     callback(forCallback);
                 }
             }, { scope: context.config.scope });
         });
     };
+};
+
+var Friends = function () {
+    this.friends = function (context, callback) {
+        FB.api('/me/friends', function (response) {
+            var hasSuccess = response && !response.error;
+            if (callback)
+                callback(new Status('Friends', hasSuccess ? 'ok' : 'error', response));
+        });
+    }
 };

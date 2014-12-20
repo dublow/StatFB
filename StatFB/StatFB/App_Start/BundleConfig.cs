@@ -18,15 +18,17 @@ namespace StatFB
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/vendors").Include(
-                        "~/Scripts/qunit-1.16.0.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/customs").Include(
                         "~/Javascripts/HttpRequest.js",
-                        "~/Javascripts/HttpRequestTest.js",
                         "~/Javascripts/FacebookBehavior.js",
-                        "~/Javascripts/Facebook.js",
+                        "~/Javascripts/Facebook.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/tests").Include(
+                        "~/Scripts/qunit-1.16.0.js",
+                        "~/Javascripts/HttpRequestTest.js",
                         "~/Javascripts/FacebookTest.js"));
+
+
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
