@@ -25,7 +25,6 @@
             ajax = $.ajax({ url: url, type: type, dataType: 'json', data: data });
 
         return {
-            isProd: isProdContext,
             pending: function (fcn) {
                 var that = this;
                 storedPending = fcn;
@@ -45,7 +44,7 @@
             fail: function (fcn) {
                 var that = this;
                 ajax.fail(function (obj, statusCode, statusText) {
-                    fcn(new response(obj.status, statusCode, statusText, isProdContext ? null : { stackTrace: obj.responseText }));
+                    fcn(new response(obj.status, statusCode, statusText, isProdContext ? null : obj.responseJSON ));
                     isPending = false;
                     that.pending(storedPending);
                 });

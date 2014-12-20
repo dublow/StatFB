@@ -143,9 +143,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Configurations\FacebookSection.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\SerializerExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +188,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Javascripts\Facebook.js" />
+    <Content Include="Javascripts\FacebookBehavior.js" />
     <Content Include="Javascripts\HttpRequest.js" />
     <Content Include="Jsons\FBConnect_Success.json" />
     <Content Include="Jsons\FBConnect_Cancel.json" />
@@ -229,7 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

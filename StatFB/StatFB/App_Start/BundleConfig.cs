@@ -24,6 +24,7 @@ namespace StatFB
             bundles.Add(new ScriptBundle("~/bundles/customs").Include(
                         "~/Javascripts/HttpRequest.js",
                         "~/Javascripts/HttpRequestTest.js",
+                        "~/Javascripts/FacebookBehavior.js",
                         "~/Javascripts/Facebook.js",
                         "~/Javascripts/FacebookTest.js"));
 

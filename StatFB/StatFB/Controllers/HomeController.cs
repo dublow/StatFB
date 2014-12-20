@@ -38,5 +38,13 @@ namespace StatFB.Controllers
             FacebookSection section = (FacebookSection)ConfigurationManager.GetSection("facebook");
             return Json(new { appId = section.Config.AppId, scope = section.Config.Scope });
         }
+
+        [HttpPost]
+        public JsonResult Configthrow()
+        {
+            throw new Exception();
+            
+            return Json(null);
+        }
     }
 }
